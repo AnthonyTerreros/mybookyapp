@@ -24,6 +24,7 @@ model Author {
   city         String
   address      String
   Author_Books Author_Books[]
+  Books        Books[]
 }
 
 model Author_Books {
@@ -41,5 +42,7 @@ model Books {
   register_at  DateTime       @default(now())
   category     Category       @relation(fields: [category_id], references: [id])
   category_id  Int
+  author       Author         @relation(fields: [author_id], references: [id])
+  author_id    Int
   Author_Books Author_Books[]
 }
