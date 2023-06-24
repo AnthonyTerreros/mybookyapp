@@ -46,3 +46,14 @@ model Books {
   author_id    Int
   Author_Books Author_Books[]
 }
+
+model User {
+  id             String   @id @default(uuid())
+  createdAt      DateTime @default(now())
+  username       String   @unique @db.VarChar(30)
+  email          String   @unique @db.VarChar(30)
+  password       String
+  isMod          Boolean  @default(false)
+  isAdmin        Boolean  @default(false)
+  emailConfirmed Boolean  @default(false)
+}
